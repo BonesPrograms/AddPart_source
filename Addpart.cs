@@ -26,6 +26,7 @@ namespace AddPartWishCommand
                         IComponent<GameObject>.AddPlayerMessage("added part " + partType.Name);
                         The.Player.AddPart(part);
                     }
+                    else
                     IComponent<GameObject>.AddPlayerMessage("Player already has " + partType.Name);
                 }
                 else

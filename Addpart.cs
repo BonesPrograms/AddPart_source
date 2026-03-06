@@ -12,7 +12,7 @@ namespace AddPartWishCommand
     {
         static Type[] IParts => _iParts ??= GatherIParts();
         static Type[] _iParts;
-        
+
         [WishCommand("addpart")]
         public static void AddPart(string partName)
         {
@@ -27,7 +27,7 @@ namespace AddPartWishCommand
                         The.Player.AddPart(part);
                     }
                     else
-                    IComponent<GameObject>.AddPlayerMessage("Player already has " + partType.Name);
+                        IComponent<GameObject>.AddPlayerMessage("Player already has " + partType.Name);
                 }
                 else
                     IComponent<GameObject>.AddPlayerMessage($"{partType.Name} does not inherit from IPart.");

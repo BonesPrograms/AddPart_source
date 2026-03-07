@@ -8,10 +8,14 @@ using System.Reflection;
 namespace AddPartWishCommand
 {
     [HasWishCommand]
+    
+    [HasGameBasedStaticCache]
     public static class AddPartWishCommand
     {
         static Type[] IParts => _iParts ??= GatherIParts();
-        static Type[] _iParts;
+
+        [GameBasedStaticCache(false)]
+        static Type[] _iParts = new Type[0];
 
         [WishCommand("addpart")]
         public static void AddPart(string partName)
@@ -38,7 +42,18 @@ namespace AddPartWishCommand
 
         static Type[] GatherIParts()
         {
-            return AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes()).Where(x => x.Namespace == "XRL.World.Parts").ToArray();
+            return AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes()).Where(x => x.Namespace == "XRL.World.Parts" && CheckBaseType(x)).ToArray();
+        }
+
+        static bool CheckBaseType(Type type)
+        {
+            while (type.BaseType != null)
+            {
+                if (type.BaseType == typeof(IPart))
+                    return true;
+                type = type.BaseType;
+            }
+            return false;
         }
     }
 }

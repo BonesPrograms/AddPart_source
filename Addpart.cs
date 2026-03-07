@@ -8,7 +8,7 @@ using System.Reflection;
 namespace AddPartWishCommand
 {
     [HasWishCommand]
-    
+
     [HasGameBasedStaticCache]
     public static class AddPartWishCommand
     {
@@ -37,7 +37,20 @@ namespace AddPartWishCommand
                     IComponent<GameObject>.AddPlayerMessage($"{partType.Name} does not inherit from IPart.");
             }
             else
-                IComponent<GameObject>.AddPlayerMessage($"{partName} could not be found in assembly. Check for typos. Case does not matter.");
+                IComponent<GameObject>.AddPlayerMessage($"{partName} could not be found in XRL.World.Parts. Check for typos. Case does not matter.");
+        }
+
+        [WishCommand("removepart")]
+        public static void RemovePart(string partName)
+        {
+            var part = The.Player.PartsList.FirstOrDefault(x => x.Name.Equals(partName, StringComparison.OrdinalIgnoreCase));
+            if (part != null)
+            {
+                IComponent<GameObject>.AddPlayerMessage($"{part.Name} removed.");
+                The.Player.RemovePart(part);
+            }
+            else
+                IComponent<GameObject>.AddPlayerMessage($"{partName} does not exist in player's part list");
         }
 
         static Type[] GatherIParts()

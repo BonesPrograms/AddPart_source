@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\AppData\\LocalLow\\Freehold Games\\CavesOfQud\\Mods\\AddPart_source\\Mods.csproj",
+      "projectUniqueName": "C:\\Users\\user\\AppData\\LocalLow\\Freehold Games\\CavesOfQud\\Mods\\DEV_AddPart\\Mods.csproj",
       "projectName": "Mods",
-      "projectPath": "C:\\Users\\user\\AppData\\LocalLow\\Freehold Games\\CavesOfQud\\Mods\\AddPart_source\\Mods.csproj",
+      "projectPath": "C:\\Users\\user\\AppData\\LocalLow\\Freehold Games\\CavesOfQud\\Mods\\DEV_AddPart\\Mods.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\AppData\\LocalLow\\Freehold Games\\CavesOfQud\\Mods\\AddPart_source\\obj\\",
+      "outputPath": "C:\\Users\\user\\AppData\\LocalLow\\Freehold Games\\CavesOfQud\\Mods\\DEV_AddPart\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
